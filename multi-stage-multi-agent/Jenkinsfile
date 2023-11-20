@@ -18,11 +18,10 @@ pipeline {
       }
     }
     
-    stages {
-        stage('Checkout') {
+    stage('Checkout') {
             steps {
                 // Check out the code from your version control system (e.g., Git)
-                git ''
+                git 'https://github.com/your-username/your-java-project.git'
             }
         }
 
@@ -40,8 +39,8 @@ pipeline {
             }
         }
 
-        
-    }
+    
+    
 
     post {
         success {
@@ -54,5 +53,11 @@ pipeline {
             echo 'Pipeline failed. Please check the build logs.'
         }
     }
+
+
+
+
+     
+        
   }
 }
