@@ -19,9 +19,10 @@ pipeline {
     }
     
     stage('Checkout') {
+      agent any
             steps {
                 // Check out the code from your version control system (e.g., Git)
-                git 'https://github.com/your-username/your-java-project.git'
+                git 'https://github.com/Sekharbabu12/Jenkins-Zero-To-Hero.git'
             }
         }
 
