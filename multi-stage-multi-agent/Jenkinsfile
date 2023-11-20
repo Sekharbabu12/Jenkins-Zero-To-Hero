@@ -17,5 +17,42 @@ pipeline {
         sh 'node --version'
       }
     }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Check out the code from your version control system (e.g., Git)
+                git ''
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your Java project using Maven
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests if applicable
+                sh 'mvn test'
+            }
+        }
+
+        
+    }
+
+    post {
+        success {
+            // Actions to perform when the pipeline succeeds
+            echo 'HelloWorld Java code built and tested successfully!'
+        }
+
+        failure {
+            // Actions to perform when the pipeline fails
+            echo 'Pipeline failed. Please check the build logs.'
+        }
+    }
   }
 }
